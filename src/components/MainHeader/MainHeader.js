@@ -3,7 +3,7 @@ import s from './MainHeader.module.css';
 
 function MainHeader() {
   return (
-    <div>MainHeader</div>
+    <div className={s.main_header}>MainHeader</div>
   )
 }
 

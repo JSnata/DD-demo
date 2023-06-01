@@ -4,7 +4,7 @@ import s from './List.module.css';
 
 function List({children}) {
   return (
-    <ul>
+    <ul className={s.list}>
         {children}
     </ul>
   )

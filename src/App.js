@@ -8,17 +8,15 @@ import Sidebar from './components/SideBar/Sidebar';
 
 function App() {
     return (
-      <div>
-        <p className='App'>
+      <div className='main_container'>
           <MainHeader />
           <Sidebar />
-          <div className='main-content'>
+          <div className='main_content'>
             <Routes>
               <Route path="/" element={<Login />} />
               <Route path="/user" element={<User />} />
             </Routes>
           </div>
-        </p>
       </div>
     )
   }

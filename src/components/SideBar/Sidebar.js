@@ -3,9 +3,9 @@ import MainNav from '../MainNav/MainNav';
 
 function Sidebar() {
   return (
-    <div className='sidebar'>
+    <section className={s.sidebar}>
         <MainNav />
-    </div>
+    </section>
   )
 }
 

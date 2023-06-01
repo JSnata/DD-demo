@@ -1,10 +1,13 @@
 import React from 'react';
 import s from './Item.module.css';
+import { NavLink } from 'react-router-dom';
 
-function Item({children}) {
+function Item({children, link, end}) {
   return (
-    <li>
+    <li className={s.item}>
+      <NavLink to={link} className={({isActive}) => isActive ? s.active : undefined} end>
         {children}
+      </NavLink>
     </li>
   )
 }
