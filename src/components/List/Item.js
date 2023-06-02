@@ -1,5 +1,5 @@
 import React from 'react';
-import s from './Item.module.css';
+import s from './List.module.css';
 import { NavLink } from 'react-router-dom';
 
 function Item({children, link, end}) {

@@ -1,6 +1,6 @@
 import s from './MainNav.module.css';
 import List from './../List/List';
-import Item from './../Item/Item';
+import Item from '../List/Item';
 
 function MainNav() {
   return (
