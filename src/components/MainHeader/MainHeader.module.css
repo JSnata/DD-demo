@@ -1,0 +1,6 @@
+.main_header {
+    background-color: #fff;
+    grid-column: 2 / 3;
+    grid-row: 1 / 2;
+    padding: 15px 30px;
+}

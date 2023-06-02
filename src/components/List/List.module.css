@@ -1,0 +1,29 @@
+.list {
+    max-width: 175px;
+    list-style: none;
+}
+
+.item {
+    width: 175px;
+}
+
+.item a.active {
+    background-color: var(--color-primary-light);
+}
+
+.item a:hover:not(.active) {
+    background-color: var(--color-text-dark-medium);
+    color: var(--color-primary-light);
+}
+
+
+.item a {
+    display: block;
+    width: 100%;
+    padding: 8px;
+    font-family: "DM Sans", sans-serif;
+    font-size: var(--size-text-xxs);
+    font-weight: 500;
+    color: var(--color-text-dark-medium);
+    transition: all 0.1s ease-out;
+}

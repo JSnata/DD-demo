@@ -9,12 +9,14 @@
     --color-secondary-green: rgba(112, 207, 151, 1);
     --color-secondary-orange: rgba(255, 118, 76, 1);
     /* Text-colors */
-    --color-text-light: rgba(224, 228, 231, 1);
-    --color-text-dark: rgba(36, 39, 49, 1);
+    --color-text-dark-medium: rgba(95, 97, 101, 1); 
     /* Typography-sizes */
     --size-header: 30px;
     --size-text-lg: 24px;
     --size-text-m: 20px;
     --size-text-s: 18px;
     --size-text-xs: 16px;
+    --size-text-xxs: 14px;
+    /*Color-effects*/
+    --hover-brightness: 1.2
   }

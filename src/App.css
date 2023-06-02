@@ -1,4 +1,15 @@
-.App {
-    color: var(--color-primary-purple);
-    font-size: var(--size-text-lg);
+.main_container {
+    height: 100vh;
+    display: grid;
+    grid-template-columns: 250px 1fr;
+    grid-template-rows: 60px 1fr;
+    background-color: var(--color-primary-light);
+
+}
+
+.main_content {
+    grid-column: 2 / 3;
+    grid-row: 2 / 3;
+    padding: 30px;
+    background-color: var(--color-primary-light);
 }
