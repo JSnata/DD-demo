@@ -1,0 +1,22 @@
+.auth_input {
+  display: inline-block;
+  width: 100%;
+  height: 50px;
+  margin: 5px auto;
+  padding: 15px;
+  border: 1px solid #b1b5c3;
+  border-radius: 10px;
+  box-sizing: border-box;
+  font-size: 0.8em;
+  transition: all 0.2s ease;
+}
+
+.auth_label {
+  font-family: DM Sans;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 21px;
+  letter-spacing: 0em;
+  text-align: left;
+  color: var(--color-primary-dark);
+}

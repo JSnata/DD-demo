@@ -1,0 +1,26 @@
+.primary_btn {
+  cursor: pointer;
+  width: 100%;
+  border: 0;
+  border-radius: 10px;
+  padding: 18px 15px;
+  background-color: var(--color-primary-purple);
+  color: var(--color-primary-light);
+  font-style: normal;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 24px;
+  transition: all 0.3s ease-out;
+}
+
+.primary_btn:hover {
+  transform: translateY(-3px);
+  filter: saturate(60%);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.primary_btn:active {
+  filter: saturate(90%);
+  transform: translateY(-1px);
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}
