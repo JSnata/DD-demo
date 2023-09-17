@@ -4,12 +4,18 @@
     --color-primary-dark: rgba(36, 39, 49, 1);
     --color-primary-light: rgba(224, 228, 231, 1);
     --color-primary-purple: rgba(161, 98, 247, 1);
+    /* Secondary colors */
     --color-secondary-blue: rgba(40, 132, 255, 1);
     --color-secondary-yellow: rgba(246, 204, 13, 1);
     --color-secondary-red: rgba(255, 99, 112, 1);
     --color-secondary-green: rgba(112, 207, 151, 1);
     --color-secondary-orange: rgba(255, 118, 76, 1);
+    /* Component colors */
+    --recommend-car01-bg: #e4daf2;
+    --recommend-car02-bg: #e3ecf1;
+    --recommend-car03-bg: #f4e3e5;
     /* Text-colors */
+    --color-text-lightest: rgba(164, 165, 166, 1);
     --color-text-light: rgba(124,124,141, 1);
     --color-text-dark-medium: rgba(95, 97, 101, 1); 
     /* Typography-sizes */

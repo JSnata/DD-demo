@@ -1,0 +1,25 @@
+.list {
+    list-style-type: none;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    left: unset;
+    z-index: 999;
+    background-color: #fff;
+    border-radius: 2px;
+    box-shadow: -4px 4px 10px 0px rgba(136, 136, 136, 0.3);
+  }
+  
+  .list li a {
+    display: block;
+    color: var(--color-text-dark-medium);
+    padding: 8px 16px;
+    border-radius: 2px;
+    text-decoration: none;
+    transition: all 0.1s ease-out;
+  }
+  
+  .list li a:hover {
+    background-color: #555;
+    color: white;
+  }

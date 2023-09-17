@@ -1,0 +1,23 @@
+.notification i {
+    color: var(--color-text-dark-medium);
+    font-size: 1.2rem;
+    cursor: pointer;
+  }
+  
+  .notification {
+    position: relative;
+  }
+  
+  .badge {
+    position: absolute;
+    top: -20%;
+    right: -5%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 10px;
+    height: 10px;
+    background-color: var(--color-secondary-red);
+    border-radius: 50%;
+  }
+  
