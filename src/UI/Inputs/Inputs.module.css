@@ -40,7 +40,5 @@
 }
 
 .error__message {
-  font-size: 14px;
-  font-family: 'DM Sans', sans-serif;
   color: var(--color-secondary-red);
 }

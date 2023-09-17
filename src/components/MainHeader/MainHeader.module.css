@@ -10,6 +10,7 @@
   align-items: center;
   justify-content: flex-end;
   padding: 15px 30px;
+  height: 100%;
 }
 
 .auth_nav {

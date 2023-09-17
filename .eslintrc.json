@@ -13,7 +13,6 @@
       "no-param-reassign": 0,
       "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
       "jsx-a11y/label-has-for": "off",
-      "label-has-associated-control": "warn",
+      "label-has-associated-control": "warn"
     }
-    
 }

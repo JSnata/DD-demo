@@ -3,13 +3,12 @@
   width: 100%;
   border: 0;
   border-radius: 10px;
-  padding: 18px 15px;
+  padding: 12px 15px;
   background-color: var(--color-primary-purple);
-  color: var(--color-primary-light);
+  color: var(--color-primary-white);
   font-style: normal;
   font-weight: 700;
-  font-size: 20px;
-  line-height: 24px;
+  font-size: 16px;
   transition: all 0.3s ease-out;
 }
 

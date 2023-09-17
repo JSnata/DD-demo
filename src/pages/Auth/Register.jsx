@@ -7,6 +7,7 @@ import AuthInput from '../../UI/Inputs/AuthInput';
 import PrimaryButton from '../../UI/Buttons/PrimaryButton';
 import Header from './Header';
 import s from './Auth.module.css';
+import BoxElement from "../../UI/Box/Box";
 
 function Register() {
   const { signup } = useSignup();
@@ -46,7 +47,7 @@ function Register() {
   return (
     <div className={s.container}>
       <section className={s.content}>
-        <Header />
+        <Header isLoginPage={false} />
         <div className={s.form_container}>
           <Formik
             initialValues={initialValues}
@@ -54,7 +55,7 @@ function Register() {
             onSubmit={handleRegister}
           >
             <Form>
-              <div className={s.form_box}>
+              <BoxElement>
                 <AuthInput
                   id="username"
                   label="Username"
@@ -69,7 +70,7 @@ function Register() {
                   type="password"
                 />
                 <PrimaryButton type="submit">Sign Up</PrimaryButton>
-              </div>
+              </BoxElement>
             </Form>
           </Formik>
         </div>
