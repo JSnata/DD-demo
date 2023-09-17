@@ -1,6 +1,6 @@
 /* eslint-disable import/no-extraneous-dependencies */
 import React from 'react';
-import { Input } from '@mui/material';
+import { TextField } from '@mui/material';
 import s from './SearchBar.module.css';
 
 export default function SearchBar({ changeSearchInput, searchInput }) {
@@ -10,14 +10,15 @@ export default function SearchBar({ changeSearchInput, searchInput }) {
 
   return (
     <div className={s.searchbar}>
-      <Input
-        color="primary"
-        fullWidth
-        value={searchInput}
-        icon="search"
-        placeholder="Search..."
-        onChange={(e) => handleChange(e.target.value)}
-      />
+        <TextField
+            color="primary"
+            fullWidth
+            placeholder="Search..."
+            type="search"
+            variant="standard"
+            value={searchInput}
+            onChange={(e) => handleChange(e.target.value)}
+        />
     </div>
   );
 }

@@ -11,7 +11,7 @@ export default function ProductFilter({ currentFilter, changeFilter }) {
   };
 
   return (
-    <MenuList dense>
+    <MenuList dense sx={{ display: 'flex', padding: 0 }}>
       {filterlist.map((f) => (
         <MenuItem
           selected={f === currentFilter ? true : false}

@@ -1,6 +1,7 @@
 import React from 'react';
 // eslint-disable-next-line import/no-extraneous-dependencies
 import { Field, ErrorMessage } from 'formik';
+import { TextField } from '@mui/material';
 import s from './Inputs.module.css';
 
 function AuthInput({
@@ -8,17 +9,25 @@ function AuthInput({
 }) {
   return (
     <div>
-      <label htmlFor={id} className={s.auth__label}>
-        {label}
-        <Field
-          className={`${s.primary_input} ${s.auth__input}`}
-          id={id}
-          name={name}
-          placeholder={placeholder}
-          type={type}
-        />
-      </label>
-      <ErrorMessage name={name} component="div" className={s.error__message} autoComplete={autoComplete} />
+      <Field
+        as={TextField}
+        label={label}
+        id={id}
+        name={name}
+        variant="outlined"
+        size="small"
+        fullWidth
+        placeholder={placeholder}
+        type={type}
+        helperText={(
+          <ErrorMessage
+            name={name}
+            component="div"
+            className={s.error__message}
+            autoComplete={autoComplete}
+          />
+        )}
+      />
     </div>
   );
 }

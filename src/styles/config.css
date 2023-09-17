@@ -3,6 +3,7 @@
     --color-main-bg: rgba(229,229,229);
     --color-primary-dark: rgba(36, 39, 49, 1);
     --color-primary-light: rgba(224, 228, 231, 1);
+    --color-primary-white: rgba(255, 255, 255, 1);
     --color-primary-purple: rgba(161, 98, 247, 1);
     /* Secondary colors */
     --color-secondary-blue: rgba(40, 132, 255, 1);

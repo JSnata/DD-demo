@@ -1,16 +1,27 @@
 import React from 'react';
 import s from './Auth.module.css';
 
-function Header() {
+function Header({ isLoginPage }) {
+  const descriptionHtml = isLoginPage ? (
+    <p>
+      Don&apos;t have an account?&nbsp;
+      <a href="/register">Sign up</a>
+    </p>
+  ) : (
+    <p>
+      Already have an account?&nbsp;
+      <a href="/login">Login</a>
+    </p>
+  );
+
   return (
-    <div className={s.description}>
-      <h1>Get&apos;s started</h1>
-      <p>
-        Don&apos;t have an account?
-        <a href="/register"> Sign up</a>
-      </p>
-      <span>or</span>
-    </div>
+    <>
+      <div className={s.description}>
+        <h1>Get&apos;s started</h1>
+        {descriptionHtml}
+      </div>
+      <div className={s.divider}>or</div>
+    </>
   );
 }
 

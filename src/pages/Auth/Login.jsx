@@ -7,6 +7,7 @@ import AuthInput from '../../UI/Inputs/AuthInput';
 import PrimaryButton from '../../UI/Buttons/PrimaryButton';
 import Header from './Header';
 import s from './Auth.module.css';
+import BoxElement from '../../UI/Box/Box';
 
 function Login() {
   const { login } = useLogin();
@@ -28,7 +29,7 @@ function Login() {
   return (
     <div className={s.container}>
       <section className={s.content}>
-        <Header />
+        <Header isLoginPage />
         <div className={s.form_container}>
           <Formik
             initialValues={initialValues}
@@ -38,7 +39,7 @@ function Login() {
             }}
           >
             <Form>
-              <div className={s.form_box}>
+              <BoxElement>
                 <AuthInput id="email" label="Email" name="email" type="email" />
                 <AuthInput
                   id="password"
@@ -48,7 +49,7 @@ function Login() {
                   autoComplete="on"
                 />
                 <PrimaryButton type="submit">Login</PrimaryButton>
-              </div>
+              </BoxElement>
             </Form>
           </Formik>
         </div>

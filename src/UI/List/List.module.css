@@ -1,6 +1,9 @@
 .list {
     max-width: 175px;
     list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
 }
 
 .item {

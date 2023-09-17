@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 // eslint-disable-next-line import/no-extraneous-dependencies
-import { Box } from '@mui/material/';
 // import { useLocation } from 'react-router-dom';
 import ProductFilter from './ProductFilter';
 import s from './Booking.module.css';
@@ -10,6 +9,7 @@ import CarCard from '../../components/CarCard/CarCard';
 // import Filter from '../../UI/Filter/Filter';
 import SearchBar from './SearchBar';
 import useCollection from '../../custom-hooks/useCollection';
+import BoxElement from '../../UI/Box/Box';
 
 // const filterOptionsCars = ['Toyota', 'Volvo', 'Audi'];
 // const filterOptionsMarket = ['New', 'Popular', 'Upcoming'];
@@ -20,9 +20,7 @@ function Bookings() {
   // const [categoryName, setCategoryName] = useState('');
   // const [collection, setCollection] = useState('');
   const [currentCategoryFilter, setCurrentCategoryFilter] = useState('All');
-  const { documents, error, title } = useCollection(
-    'bookingCars',
-  );
+  const { documents, error, title } = useCollection('bookingCars');
 
   // const queryString = useLocation().pathname.split('/');
   // const currentCategory = currentCategoryFilter;
@@ -68,10 +66,9 @@ function Bookings() {
       <div className={s.bookings}>
         <h2 className="main_title">Booking</h2>
         <h3>{title}</h3>
-        <Box
+        <BoxElement
           sx={{
-            maxWidth: '235px',
-            marginTop: '40px',
+            display: 'flex',
             marginBottom: '30px',
           }}
         >
@@ -79,17 +76,18 @@ function Bookings() {
             changeSearchInput={changeSearchInput}
             searchInput={searchInput}
           />
-        </Box>
-        <div className={s.filter__wrapper}>
-          {documents && (
-            <ProductFilter
-              currentFilter={currentCategoryFilter}
-              changeFilter={changeFilter}
-            />
-          )}
-          {/* <Filter options={filterOptionsCars} />
+          <div className={s.filter__wrapper}>
+            {documents && (
+              <ProductFilter
+                currentFilter={currentCategoryFilter}
+                changeFilter={changeFilter}
+              />
+            )}
+            {/* <Filter options={filterOptionsCars} />
           <Filter options={filterOptionsMarket} /> */}
-        </div>
+          </div>
+        </BoxElement>
+
         <div className={s.list}>
           {!error && products ? (
             products.map((item) => (
