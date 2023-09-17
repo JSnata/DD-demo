@@ -5,7 +5,17 @@ import MainNav from '../MainNav/MainNav';
 function Sidebar() {
   return (
     <section className={s.sidebar}>
-      <MainNav />
+      <div className={s.top}>
+        <h2>
+          <span>
+            <i className="ri-roadster-fill"></i>
+          </span>
+          Rent
+        </h2>
+      </div>
+      <div className={s.content}>
+        <MainNav />
+      </div>
     </section>
   );
 }

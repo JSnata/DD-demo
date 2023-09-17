@@ -1,0 +1,77 @@
+.primary_btn {
+  cursor: pointer;
+  width: 100%;
+  border: 0;
+  border-radius: 10px;
+  padding: 18px 15px;
+  background-color: var(--color-primary-purple);
+  color: var(--color-primary-light);
+  font-style: normal;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 24px;
+  transition: all 0.3s ease-out;
+}
+
+.primary_btn:hover {
+  transform: translateY(-3px);
+  filter: saturate(60%);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.primary_btn:active {
+  filter: saturate(90%);
+  transform: translateY(-1px);
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+.secondary_btn {
+  list-style-type: none;
+}
+
+.secondary_btn a {
+  display: inline-block;
+  min-width: 96px;
+  border: 1px solid var(--color-text-dark-medium);
+  border-radius: 6px;
+  padding: 6px 12px;
+  background-color: transparent;
+  color: var(--color-text-dark-medium);
+  text-align: center;
+  font-family: DM Sans, sans-serif;
+  font-size: var(--size-text-xxs);
+  font-weight: 500;
+  line-height: 18px;
+  transition: all 0.1s ease-in;
+}
+
+.secondary_btn:hover a {
+  background-color: var(--color-text-dark-medium);
+  color: var(--color-primary-light);
+}
+
+.arrow_button {
+  width: 50px;
+  height: 20px;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--color-secondary-red);
+  color: #fff;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.1s ease-in-out;
+}
+
+.arrow_button:hover {
+  filter: saturate(300%);
+  transform: translateY(-1px);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+.like_button i {
+  font-size: 24px;
+  color: var(--color-text-lightest);
+  cursor: pointer;
+}

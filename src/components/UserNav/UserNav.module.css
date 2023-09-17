@@ -1,0 +1,22 @@
+.user_nav {
+  position: relative;
+}
+
+.user_btn {
+  cursor: pointer;
+  width: 45px;
+  height: 40px;
+  border: none;
+  border-radius: 50%;
+  overflow: hidden;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  padding: 0;
+
+}
+
+.img img {
+  width: 100%;
+  
+}

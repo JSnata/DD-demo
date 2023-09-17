@@ -1,0 +1,6 @@
+.tooltip {
+    background: var(--color-main-bg);
+    color: var(--color-text-dark-medium);
+    font-weight: 500;
+    /* margin-bottom: 20px; */
+}

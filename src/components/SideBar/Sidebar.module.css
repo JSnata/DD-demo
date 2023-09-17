@@ -4,3 +4,35 @@
     padding: 30px 25px;
     background-color: #fff;
 }
+
+.top {
+    width: 100%;
+    height: 70px;
+    line-height: 70px;
+    margin-bottom: 40px;
+}
+
+.top h2 {
+    display: flex;
+    align-items: center;
+    column-gap: .5rem;
+    margin: 0;
+    color: var(--color-text-dark-medium);
+}
+
+.top h2 span {
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--color-primary-purple);
+    border-radius: 50%;
+}
+
+.top h2 i {
+    font-weight: 400;
+    color: #fff;
+    padding: 5px;
+    font-size: 1.2rem;
+}
