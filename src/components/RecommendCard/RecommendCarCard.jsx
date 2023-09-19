@@ -1,16 +1,19 @@
 import React from 'react';
 import s from './RecommendCarCard.module.css';
+import useStorage from '../../custom-hooks/useStorage';
 
 function RecommendCarCard({
+  imgId,
+  key,
   carName,
   retweet,
-  imgUrl,
   rentPrice,
   percentage,
 }) {
+  const { url } = useStorage('recommendCars', imgId);
   return (
     <div className={`${s.recommend__card} card__wrapper`}>
-      <div className={s.top}>
+      <div key={key} className={s.top}>
         <h5>
           <span>
             <i className="ri-refresh-line"></i>
@@ -20,7 +23,7 @@ function RecommendCarCard({
         </h5>
       </div>
       <div className={s.img__wrapper}>
-        <img src={imgUrl} alt="" />
+        <img src={url} alt="" />
       </div>
       <div className={s.bottom}>
         <h4>{carName}</h4>

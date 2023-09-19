@@ -1,5 +1,4 @@
 import React from 'react';
-// eslint-disable-next-line import/no-extraneous-dependencies
 import s from './Dashboard.module.css';
 import CustomBarChart from '../../components/Charts/CustomBarChart';
 import CustomAreaChart from '../../components/Charts/CustomAreaChart';

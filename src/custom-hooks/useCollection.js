@@ -14,7 +14,6 @@ const useCollection = (col) => {
       ref,
       (snapshot) => {
         const results = [];
-        // console.log(snapshot);
         snapshot.docs.forEach((doc) => {
           results.push({ ...doc.data(), id: doc.id });
         });
