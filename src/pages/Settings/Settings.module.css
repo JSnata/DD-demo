@@ -31,29 +31,13 @@
     color: var(--color-text-dark-medium);
     margin-bottom: 20px;
   }
-  
-  label {
-    color: var(--color-text-dark-medium);
-    margin-bottom: 5px;
-    font-size: 14px;
-  }
-  
-  .form__group div {
-    display: flex;
-    flex-direction: column;
-    width: 47%;
-  }
-  
+
   .form__group {
     display: flex;
     align-items: center;
     justify-content: space-between;
     column-gap: 2rem;
     margin-bottom: 2rem;
-  }
-  
-  .form__group div input:focus {
-    outline: none;
   }
   
   .profile__img_desc {

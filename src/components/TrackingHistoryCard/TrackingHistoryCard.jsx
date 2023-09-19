@@ -8,7 +8,9 @@ function TrackingHistoryCard() {
   return (
     <div className={s.card}>
       <h2 className="secondary_title">Tracking History</h2>
-      <TrackingChart data={trackingHistoryData} />
+      <div className={s.chart}>
+        <TrackingChart data={trackingHistoryData} />
+      </div>
     </div>
   );
 }
