@@ -1,8 +1,11 @@
+.chart {
+    height: 370px;
+}
+
 .card {
     padding: 20px;
     border-radius: 5px;
     background: #fff;
-    height: 370px;
     padding-bottom: 70px;
 }
 

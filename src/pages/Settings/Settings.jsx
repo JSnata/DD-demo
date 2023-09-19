@@ -9,7 +9,6 @@ import SettingsInput from '../../UI/Inputs/SettingsInput';
 import useAuthContext from '../../custom-hooks/useAuthContext';
 import s from './Settings.module.css';
 
-
 function Settings() {
   const { user, authIsReady, dispatch } = useAuthContext();
   const { updateUser } = useUpdateUser();
@@ -95,7 +94,9 @@ function Settings() {
                   id="birthDate"
                   type="date"
                   label="Date of Birth"
-                  placeholder="dd/mm/yyyy"
+                  InputLabelProps={{
+                    shrink: true,
+                  }}
                 />
                 <SettingsInput type="text" id="gender" name="gender" label="Gender" placeholder="Male" />
               </div>
