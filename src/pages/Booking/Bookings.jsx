@@ -34,7 +34,6 @@ function Bookings() {
   const filterData = searchInput.length ? searchFilteredResults : documents;
   const products = filterData
     ? filterData.filter((document) => {
-        console.log(filterData);
         switch (currentCategoryFilter) {
           case 'All':
             return true;
@@ -87,11 +86,13 @@ function Bookings() {
           <Filter options={filterOptionsMarket} /> */}
           </div>
         </BoxElement>
+        {/* {products && console.log(products);} */}
 
         <div className={s.list}>
           {!error && products ? (
             products.map((item) => (
               <CarCard
+                imgId={item.id}
                 key={item.id}
                 category={item.category}
                 type={item.type}
