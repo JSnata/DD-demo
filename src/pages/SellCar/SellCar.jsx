@@ -25,7 +25,7 @@ function SellCar() {
         </div>
         <div className={s.offer__wrapper}>
           <div className={s.offer__top}>
-            <h2 className="main_title">Offers</h2>
+            <h2 className={s.offer__top__title}>Offers</h2>
             <div className={s.filter__wrapper}>
               <Filter options={filterOptionsCars} />
               <Filter options={filterOptionsMarket} />

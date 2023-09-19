@@ -9,9 +9,10 @@ function CarCard({
   imgUrl,
   carName,
   groupSize,
+  classNames = '',
 }) {
   return (
-    <div className={s.card}>
+    <div className={`${s.card} ${classNames}`}>
       <div className={s.header}>
         <div className={s.title}>
           <h3 className="secondary__title">{carName}</h3>
@@ -34,8 +35,7 @@ function CarCard({
           </p>
         </div>
         <p className={s.price}>
-          $
-          {rentPrice}
+          ${rentPrice}
           <span>/d</span>
         </p>
       </div>
