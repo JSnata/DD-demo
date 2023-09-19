@@ -12,6 +12,10 @@
     row-gap: 2rem;
 }
 
+.list .list__item {
+    width: 100%;
+}
+
 .filter__widget_wrapper {
     display: flex;
     align-items: center;

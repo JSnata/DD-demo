@@ -38,8 +38,8 @@ function Settings() {
 
   return (
     <div className="content__wrapper">
+      <h2 className="main_title">Settings</h2>
       <div className={s.settings}>
-        <h2 className="main_title">Settings</h2>
         {/* <div className={s.settings__top}>
           <button className={s.setting__btn}>My Details</button>
           <button className={`${s.setting__btn} ${s.active__btn}`}>Profile</button>

@@ -53,4 +53,10 @@
     align-items: center;
     justify-content: space-between;
     margin-top: 2rem;
+    margin-bottom: 35px;
+}
+
+.offer__top__title {
+    composes: main_title from "../../App.css";
+    margin: 0;
 }

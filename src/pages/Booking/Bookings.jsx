@@ -100,6 +100,7 @@ function Bookings() {
                 imgUrl={item.imgUrl}
                 carName={item.carName}
                 groupSize={item.groupSize}
+                classNames={s.list__item}
               />
             ))
           ) : (
