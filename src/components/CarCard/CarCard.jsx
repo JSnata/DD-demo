@@ -1,15 +1,17 @@
 import React from 'react';
 import LikeButton from '../../UI/Buttons/LikeButton';
 import s from './CarCard.module.css';
+import useStorage from '../../custom-hooks/useStorage';
 
 function CarCard({
+  imgId,
   category,
   type,
   rentPrice,
-  imgUrl,
   carName,
   groupSize,
 }) {
+  const { url } = useStorage('bookingCars', imgId);
   return (
     <div className={s.card}>
       <div className={s.header}>
@@ -20,7 +22,7 @@ function CarCard({
         <p className={s.category}>{category}</p>
       </div>
       <div className={s.img__wrapper}>
-        <img src={imgUrl} alt="" />
+        <img src={url} alt="" />
       </div>
       <div className={s.description}>
         <div className={s.info}>

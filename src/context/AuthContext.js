@@ -32,7 +32,7 @@ export function AuthContextProvider({ children }) {
     });
   }, []);
 
-  console.log('AuthContext state:', state);
+  // console.log('AuthContext state:', state);
 
   return (
     // eslint-disable-next-line react/jsx-no-constructed-context-values

@@ -1,10 +1,13 @@
+/* eslint-disable label-has-associated-control */
 import React from 'react';
 import s from './RecommendCarCard.module.css';
 import RecommendCarCard from './RecommendCarCard';
 import useCollection from '../../custom-hooks/useCollection';
 
+
 function RecommendCarCardList() {
   const { documents: recommendCars } = useCollection('recommendCars');
+
 
   return (
     <div className={s.list}>
@@ -12,10 +15,10 @@ function RecommendCarCardList() {
         recommendCars
         && recommendCars.map((item) => (
           <RecommendCarCard
+            imgId={item.id}
             key={item.id}
             carName={item.carName}
             retweet={item.retweet}
-            imgUrl={item.imgUrl}
             rentPrice={item.rentPrice}
             percentage={item.percentage}
           />
