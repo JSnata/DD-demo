@@ -17,12 +17,14 @@ import 'remixicon/fonts/remixicon.css';
 import 'react-toastify/dist/ReactToastify.css';
 import 'react-circular-progressbar/dist/styles.css';
 import useAuthContext from './custom-hooks/useAuthContext';
+import useAppContext from "./custom-hooks/useAppContext";
 
 const App = () => {
   const { user, authIsReady } = useAuthContext();
+  const { isMenuOpen: menuOpen } = useAppContext();
 
   return (
-    <div className="main_container">
+    <div className={`main_container ${menuOpen ? '-open' : ''}`}>
       {authIsReady && (
         <>
           <MainHeader />
