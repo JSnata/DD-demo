@@ -1,5 +1,5 @@
 /* eslint-disable import/no-extraneous-dependencies */
-import React from 'react';
+import React, { useState } from 'react';
 // import { signOut } from 'firebase/auth';
 // import { toast } from 'react-toastify';
 // import { useNavigate } from 'react-router-dom';
@@ -10,6 +10,10 @@ import UserNav from '../UserNav/UserNav';
 import useAuthContext from '../../custom-hooks/useAuthContext';
 import SecondaryButton from '../../UI/Buttons/SecondaryButton';
 import s from './MainHeader.module.css';
+import { IconButton } from '@mui/material';
+import MenuIcon from '@mui/icons-material/Menu';
+import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
+import useAppContext from '../../custom-hooks/useAppContext';
 // import useAuth from '../../custom-hooks/useAuth';
 // import { auth } from '../../firebase.config';
 const userNavData = [
@@ -30,6 +34,14 @@ const userNavData = [
 function MainHeader() {
   const { logout } = useLogout();
   const { user, authIsReady } = useAuthContext();
+
+  const { dispatch, isMenuOpen } = useAppContext();
+  const [menuOpen, setMenuOpen] = useState(isMenuOpen);
+
+  const toggleDrawer = () => {
+    setMenuOpen(!menuOpen);
+    dispatch({ type: 'SET_MENU_STATUS', payload: !menuOpen });
+  };
   // const currentUser = true;
   // const { currentUser } = useAuth();
   // const navigate = useNavigate();
@@ -37,11 +49,29 @@ function MainHeader() {
   return (
     <div className={s.main_header}>
       <div className={s.main_wrapper}>
+        <IconButton
+          edge="start"
+          color="inherit"
+          aria-label="open drawer"
+          onClick={toggleDrawer}
+          sx={{
+            margin: '0px',
+            backgroundColor: 'var(--color-primary-light)',
+          }}
+        >
+          {menuOpen ? <ChevronLeftIcon /> : <MenuIcon />}
+        </IconButton>
         <div className={s.auth_nav}>
           {user && <Notification />}
           {!user && <SecondaryButton link="/login">Login</SecondaryButton>}
           {!user && <SecondaryButton link="/register">Sign up</SecondaryButton>}
-          {user && <UserNav clickHandler={logout} profileImg={profileImg} menuData={userNavData} />}
+          {user && (
+            <UserNav
+              clickHandler={logout}
+              profileImg={profileImg}
+              menuData={userNavData}
+            />
+          )}
         </div>
       </div>
     </div>
