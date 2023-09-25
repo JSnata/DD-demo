@@ -2,7 +2,7 @@ import { createContext, useReducer } from 'react';
 
 export const AppContext = createContext();
 
-export const authReducer = (state, action) => {
+export const appReducer = (state, action) => {
   switch (action.type) {
     case 'SET_MENU_STATUS':
       return { isMenuOpen: action.payload };
@@ -12,7 +12,7 @@ export const authReducer = (state, action) => {
 };
 
 export function AppContextProvider({ children }) {
-  const [state, dispatch] = useReducer(authReducer, {
+  const [state, dispatch] = useReducer(appReducer, {
     isMenuOpen: true,
   });
 
