@@ -1,6 +1,5 @@
 .statics {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    column-gap: 2rem;
+    display: flex;
+    gap: 2rem;
     margin-top: 40px;
 }

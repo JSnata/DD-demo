@@ -1,7 +1,6 @@
 .general_cards {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    column-gap: 2rem;
+    display: flex;
+    gap: 2rem;
 }
 
 .card {
@@ -11,6 +10,7 @@
     justify-content: space-between;
     border-radius: 5px;
     cursor: pointer;
+    width: 100%;
 }
 
 .card:nth-child(1){
