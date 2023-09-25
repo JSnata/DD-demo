@@ -24,7 +24,6 @@ function Bookings() {
 
   // const queryString = useLocation().pathname.split('/');
   // const currentCategory = currentCategoryFilter;
-  // console.log(currentCategory);
   // useEffect(() => {
   //   if (currentCategory) {
   //     setCategoryName(currentCategory);
@@ -86,7 +85,6 @@ function Bookings() {
           <Filter options={filterOptionsMarket} /> */}
           </div>
         </BoxElement>
-        {/* {products && console.log(products);} */}
 
         <div className={s.list}>
           {!error && products ? (
@@ -97,7 +95,7 @@ function Bookings() {
                 category={item.category}
                 type={item.type}
                 rentPrice={item.rentPrice}
-                imgUrl={item.imgUrl}
+                photoUrl={item.photoUrl}
                 carName={item.carName}
                 groupSize={item.groupSize}
                 classNames={s.list__item}

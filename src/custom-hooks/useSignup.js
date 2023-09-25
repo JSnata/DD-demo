@@ -21,12 +21,14 @@ const useSignup = () => {
       .then((res) => {
         updateProfile(res.user, {
           displayName: userName,
+          photoUrl: null,
         });
 
         setDoc(doc(db, 'users', res.user.uid), {
           uid: res.user.uid,
           displayName: userName,
           email,
+          photoUrl: null,
         });
 
         dispatch({ type: 'LOGIN', payload: res.user });

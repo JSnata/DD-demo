@@ -33,7 +33,6 @@ function MainHeader() {
   // const currentUser = true;
   // const { currentUser } = useAuth();
   // const navigate = useNavigate();
-
   return (
     <div className={s.main_header}>
       <div className={s.main_wrapper}>
@@ -41,7 +40,7 @@ function MainHeader() {
           {user && <Notification />}
           {!user && <SecondaryButton link="/login">Login</SecondaryButton>}
           {!user && <SecondaryButton link="/register">Sign up</SecondaryButton>}
-          {user && <UserNav clickHandler={logout} profileImg={profileImg} menuData={userNavData} />}
+          {user && <UserNav userId={user.uid} clickHandler={logout} profileImg={profileImg} menuData={userNavData} />}
         </div>
       </div>
     </div>
