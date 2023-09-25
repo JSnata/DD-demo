@@ -12,6 +12,7 @@ const useUpdateUser = () => {
   const { logout } = useLogout();
 
   const updateUser = (user, value) => {
+    console.log(user, value);
     setError(null);
     setIsPending(true);
     try {

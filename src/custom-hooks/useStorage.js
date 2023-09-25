@@ -4,6 +4,7 @@ import { storage } from '../firebase.config';
 
 const useStorage = (category, id) => {
   const [url, setUrl] = useState([]);
+
   useEffect(() => {
     const listRef = ref(storage, `${category}/${id}`);
     const resItems = [];
@@ -24,7 +25,7 @@ const useStorage = (category, id) => {
       .catch((error) => {
         console.log(error.message);
       });
-  }, [id]);
+  }, [category, id]);
 
   return { url };
 };

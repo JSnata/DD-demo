@@ -1,5 +1,5 @@
 /*eslint-disable */
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Formik, Form } from 'formik';
 import * as Yup from 'yup';
 import { toast } from 'react-toastify';
@@ -7,22 +7,29 @@ import useDeleteUser from '../../custom-hooks/useDeleteUser';
 import useUpdateUser from '../../custom-hooks/useUpdateUser';
 import SettingsInput from '../../UI/Inputs/SettingsInput';
 import useAuthContext from '../../custom-hooks/useAuthContext';
+import useUpdateStorage from '../../custom-hooks/useUpdateStorage';
+import SecondaryButton from '../../UI/Buttons/SecondaryButton';
 import s from './Settings.module.css';
+import FileUploader from '../../components/FileUploader/FileUploader';
 
 function Settings() {
   const { user, authIsReady, dispatch } = useAuthContext();
   const { updateUser } = useUpdateUser();
-  const {delUser, error, isPending, } = useDeleteUser();
+  const { delUser, error, isPending } = useDeleteUser();
+  const [file, setFile] = useState('');
+  const [flag, setFlag] = useState(false);
+  const { url } = useUpdateStorage(file, 'userImages', user.uid, flag );
 
+console.log(url)
   const initialValues = {
     displayName: '',
-    street: '',  
+    street: '',
     birthDate: '',
     gender: '',
     photo: '',
   };
 
-  const handleProfileSettings = async (formValue) => {
+  const handleProfileSettings = (formValue) => {
     const updateData = {};
 
     // eslint-disable-next-line no-restricted-syntax
@@ -32,8 +39,16 @@ function Settings() {
       }
     }
     updateUser(user, updateData)
+    if(file){
+      setFlag(true);
+    }
   };
 
+  useEffect(() => {
+    if(url && flag){
+      updateUser(user, { photoUrl: url, })
+    }
+  }, [url, flag]);
 
   return (
     <div className="content__wrapper">
@@ -98,22 +113,27 @@ function Settings() {
                     shrink: true,
                   }}
                 />
-                <SettingsInput type="text" id="gender" name="gender" label="Gender" placeholder="Male" />
+                <SettingsInput
+                  type="text"
+                  id="gender"
+                  name="gender"
+                  label="Gender"
+                  placeholder="Male"
+                />
               </div>
               <div className={s.form__group}>
-                <div>
-                  <p className={s.description}>
-                    This will be displayed in your profile
-                  </p>
-                  <input name="photo"
-                    id="photo"
-                    type="file"
-                    label="Your Photo"
-                    placeholder="Choose file" />
-                </div>
+                <FileUploader category="userImages" id={user.uid} setFile={setFile}/>
                 <div className={s.profile__img_btns}>
-                  <button type="button" className={s.dlt__btn} onClick={()=> delUser(user)}>Delete</button>
-                 {user && <button type="submit" className={s.update__btn}>Update</button>} 
+                  <button
+                    type="button"
+                    className={s.dlt__btn}
+                    onClick={() => delUser(user)}
+                  >
+                    Delete
+                  </button>
+                  <button type="submit" className={s.update__btn}>
+                    Update
+                  </button>
                 </div>
               </div>
             </Form>
