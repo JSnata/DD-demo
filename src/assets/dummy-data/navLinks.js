@@ -21,4 +21,8 @@ const navLinks = [
   },
 ];
 
+const guestPages = ['/dashboard', '/bookings', '/sell-car'];
+
+export const guestNavLinks = navLinks.filter((item) => guestPages.includes(item.path));
+
 export default navLinks;

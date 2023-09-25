@@ -20,7 +20,6 @@ function Settings() {
   const [flag, setFlag] = useState(false);
   const { url } = useUpdateStorage(file, 'userImages', user.uid, flag );
 
-console.log(url)
   const initialValues = {
     displayName: '',
     street: '',
