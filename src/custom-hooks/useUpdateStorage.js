@@ -8,6 +8,7 @@ const useUpdateStorage = (file, category, id, flag) => {
   const [isCancelled, setIsCancelled] = useState(false);
   const [progresspercent, setProgresspercent] = useState(0);
   const [error, setError] = useState(null);
+  const [successMessage, setSuccessMessage] = useState(null);
   const [url, setUrl] = useState(null);
   const [isPending, setIsPending] = useState(false);
 
@@ -35,15 +36,18 @@ const useUpdateStorage = (file, category, id, flag) => {
         () => {
           getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
             setUrl(downloadURL);
-            toast.success('Succesfully updated img');
+            setSuccessMessage('Photo is successfully updated');
+          }).catch((err) => {
+            setError(err);
+            toast.error(`Something went wrong: (${err.message})`);
           });
-        }
+        },
       );
       // }
     }
   }, [file, category, id, flag]);
 
-  return { url, error, isPending };
+  return { url, successMessage, error, isPending };
 
   // useEffect(() => {
 

@@ -10,6 +10,7 @@
     box-shadow: -4px 4px 10px 0px rgba(136, 136, 136, 0.3);
   }
   
+  .list li button,
   .list li a {
     display: block;
     color: var(--color-text-dark-medium);
@@ -17,8 +18,14 @@
     border-radius: 2px;
     text-decoration: none;
     transition: all 0.1s ease-out;
+    border: 0;
+    width: 100%;
+    text-align: left;
+    background-color: unset;
+    cursor: pointer;
   }
   
+  .list li button:hover,
   .list li a:hover {
     background-color: #555;
     color: white;
