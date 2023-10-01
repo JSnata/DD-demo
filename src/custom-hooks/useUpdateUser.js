@@ -7,18 +7,18 @@ import { db } from '../firebase.config';
 
 const useUpdateUser = () => {
   const [isCancelled, setIsCancelled] = useState(false);
+  const [successMessage, setSuccessMessage] = useState(null);
   const [error, setError] = useState(null);
   const [isPending, setIsPending] = useState(false);
   const { logout } = useLogout();
 
   const updateUser = (user, value) => {
-    console.log(user, value);
     setError(null);
     setIsPending(true);
     try {
       updateProfile(user, { ...user, ...value });
       updateDoc(doc(db, 'users', user.uid), value);
-      toast.success('Profile updated');
+      setSuccessMessage('Profile is updated');
       if (!isCancelled) {
         setIsPending(false);
         setError(null);
@@ -36,7 +36,7 @@ const useUpdateUser = () => {
       deleteDoc(doc(db, 'users', user.uid));
       deleteUser(user);
       logout();
-      toast.success('Profile deleted');
+      setSuccessMessage('Profile is deleted');
       if (!isCancelled) {
         setIsPending(false);
         setError(null);
@@ -51,6 +51,7 @@ const useUpdateUser = () => {
   return {
     updateUser,
     delUser,
+    successMessage,
     error,
     isPending,
   };

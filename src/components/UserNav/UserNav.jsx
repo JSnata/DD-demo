@@ -1,8 +1,8 @@
 /* eslint-disable max-len */
 import React, { useState } from 'react';
 import useDocument from '../../custom-hooks/useDocument';
-
 import SecondaryMenu from '../../UI/Menu/SecondaryMenu';
+import avatarImg from '../../assets/images/profile.png';
 import s from './UserNav.module.css';
 
 function UserNav({ userId, menuData, clickHandler }) {
@@ -16,7 +16,7 @@ function UserNav({ userId, menuData, clickHandler }) {
         className={s.user_btn}
         onClick={() => setHiddenMenu((s) => !s)}
       >
-        {document && <img src={document.photoUrl} alt="" />}
+        {document && <img src={document.photoUrl || avatarImg} alt="" />}
       </button>
       {!hiddenMenu ? (
         <SecondaryMenu clickHandler={clickHandler} menuData={menuData} />

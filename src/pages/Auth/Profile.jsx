@@ -1,10 +1,13 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import useDocument from '../../custom-hooks/useDocument';
 import useAuthContext from '../../custom-hooks/useAuthContext';
 
 function Profile() {
   const { user } = useAuthContext();
-  const { document } = useDocument('users', user.uid);
+    useEffect(() => () => console.log(user), [user]);
+  // const { document, error } = useDocument('users', user.uid );
+
+
   return (
     <div>
       <h2>Profile data</h2>

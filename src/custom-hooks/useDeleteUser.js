@@ -12,10 +12,12 @@ const useDeleteUser = () => {
   const { logout } = useLogout();
 
   const delUser = (user) => {
+    console.log(user);
     setError(null);
     setIsPending(true);
     deleteUser(user)
       .then(() => {
+        console.log('im here');
         deleteDoc(doc(db, 'users', user.uid));
       })
       .then(() => {
