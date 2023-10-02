@@ -41,7 +41,7 @@ const App = () => {
               <Route path="/dashboard" element={<Dashboard />} />
               <Route path="/bookings/*" element={<Bookings />} />
               <Route path="/sell-car" element={<SellCar />} />
-              <Route path="/settings" element={<Settings />} />
+              { user && <Route path="/settings" element={<Settings />} />}
             </Routes>
           </div>
           <ToastContainer position="bottom-right" />

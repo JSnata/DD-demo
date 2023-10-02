@@ -13,11 +13,12 @@ import s from './Settings.module.css';
 import FileUploader from '../../components/FileUploader/FileUploader';
 
 function Settings() {
-  const { user, authIsReady, dispatch } = useAuthContext();
-  const { updateUser } = useUpdateUser();
-  const { delUser, error, isPending } = useDeleteUser();
+  const { user } = useAuthContext();
+  const { updateUser, successMessage: updateUserSuccessMessage} = useUpdateUser();
+  const { delUser } = useDeleteUser();
   const [file, setFile] = useState('');
   const [flag, setFlag] = useState(false);
+  const [successMessageFlag, setSuccessMessageFlag] = useState(false);
   const { url } = useUpdateStorage(file, 'userImages', user.uid, flag );
 
   const initialValues = {
@@ -48,6 +49,15 @@ function Settings() {
       updateUser(user, { photoUrl: url, })
     }
   }, [url, flag]);
+
+  useEffect(() => {
+    if(updateUserSuccessMessage && !successMessageFlag){
+      console.log(successMessageFlag)
+      setSuccessMessageFlag(true);
+      toast.success(updateUserSuccessMessage);
+    }
+  }, [updateUserSuccessMessage, successMessageFlag]);
+
 
   return (
     <div className="content__wrapper">
