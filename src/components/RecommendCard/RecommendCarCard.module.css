@@ -63,3 +63,10 @@
   align-items: center;
   column-gap: 1rem;
 }
+
+@media (max-width: 1024px) {
+  .list {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+}

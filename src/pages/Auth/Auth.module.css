@@ -13,6 +13,9 @@
   justify-content: center;
   flex-direction: column;
   gap: 25px;
+  width: 100%;
+  max-width: 500px;
+  padding: 0 15px;
 }
 
 .description {
@@ -71,7 +74,7 @@
 }
 
 .form_container {
-  width: 506px;
+  width: 100%;
   height: auto;
   margin: 0 auto;
 }

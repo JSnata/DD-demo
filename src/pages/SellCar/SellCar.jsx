@@ -1,10 +1,7 @@
 import React from 'react';
-/*eslint-disable*/
 import sellCar from '../../assets/images/sell-car.png';
 import s from './SellCar.module.css';
 import Filter from '../../UI/Filter/Filter';
-import OfferCard from '../../components/OfferCard/OfferCard';
-import offerData from '../../assets/dummy-data/offer-data';
 import TrackingHistoryCard from '../../components/TrackingHistoryCard/TrackingHistoryCard';
 import OfferList from '../../components/OfferCard/OfferList';
 

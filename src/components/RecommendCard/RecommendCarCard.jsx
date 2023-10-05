@@ -4,7 +4,6 @@ import useStorage from '../../custom-hooks/useStorage';
 
 function RecommendCarCard({
   imgId,
-  key,
   carName,
   retweet,
   rentPrice,
@@ -13,7 +12,7 @@ function RecommendCarCard({
   const { url } = useStorage('recommendCars', imgId);
   return (
     <div className={`${s.recommend__card} card__wrapper`}>
-      <div key={key} className={s.top}>
+      <div className={s.top}>
         <h5>
           <span>
             <i className="ri-refresh-line"></i>

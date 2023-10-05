@@ -46,3 +46,9 @@
     font-weight: 400 !important;
     color: #fff;
 }
+
+@media (max-width: 1024px) {
+    .general_cards {
+        flex-direction: column;
+    }
+}

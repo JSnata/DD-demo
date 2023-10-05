@@ -1,7 +1,5 @@
 import React from 'react';
-// eslint-disable-next-line import/no-extraneous-dependencies
 import { MenuItem, Typography, MenuList } from '@mui/material';
-import s from './ProductFilter.module.css';
 
 const filterlist = ['All', 'Toyota', 'Volvo', 'Audi'];
 
@@ -12,13 +10,13 @@ export default function ProductFilter({ currentFilter, changeFilter }) {
 
   return (
     <MenuList dense sx={{ display: 'flex', padding: 0 }}>
-      {filterlist.map((f) => (
+      {filterlist.map((item) => (
         <MenuItem
-          selected={f === currentFilter ? true : false}
-          key={f}
-          onClick={() => handleClick(f)}
+          selected={item === currentFilter}
+          key={item}
+          onClick={() => handleClick(item)}
         >
-          <Typography>{f}</Typography>
+          <Typography>{item}</Typography>
         </MenuItem>
       ))}
     </MenuList>

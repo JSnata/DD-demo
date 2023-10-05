@@ -11,7 +11,13 @@ function MainNav() {
     <nav>
       <List>
         {(user ? navLinks : guestNavLinks).map((item) => (
-          <Item link={item.path} icon={item.icon} display={item.display} end />
+          <Item
+            key={item.path}
+            link={item.path}
+            icon={item.icon}
+            display={item.display}
+            end
+          />
         ))}
       </List>
     </nav>

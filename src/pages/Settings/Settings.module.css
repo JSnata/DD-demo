@@ -1,18 +1,17 @@
-  
-  .settings {
+.settings {
     padding: 20px;
     border-radius: 5px;
     background: #fff;
-  }
-  
-  .settings__top {
+}
+
+.settings__top {
     display: flex;
     align-items: center;
     column-gap: 2.7rem;
     margin-bottom: 1.5rem;
-  }
-  
-  .setting__btn {
+}
+
+.setting__btn {
     border: none;
     border: none;
     padding: 7px 25px;
@@ -21,46 +20,53 @@
     color: var(--color-text-light);
     font-size: 16px;
     cursor: pointer;
-  }
-  
-  .active__btn {
+}
+
+.active__btn {
     background: var(--color-primary-purple);
-  }
-  
-  .description {
+}
+
+.description {
     color: var(--color-text-dark-medium);
     margin-bottom: 20px;
-  }
+}
 
-  .form__group {
+.form__group {
     display: flex;
     align-items: center;
     justify-content: space-between;
     column-gap: 2rem;
     margin-bottom: 2rem;
-  }
-  
-  .profile__img_desc {
+}
+
+.profile__img_desc {
     color: var(--color-text-lightest);
     margin-bottom: 10px;
-  }
-  
-  .profile__img_btns {
+}
+
+.profile__img_btns {
     display: flex;
     flex-direction: row !important;
     column-gap: 2.7rem;
-  }
-  
-  .dlt__btn,
-  .update__btn {
+}
+
+.dlt__btn,
+.update__btn {
     border: none;
     outline: none;
     background: transparent;
     color: #ddd;
     font-size: 0.9rem;
     cursor: pointer;
-  }
-  
-  .update__btn {
+}
+
+.update__btn {
     color: var(--color-primary-purple);
-  }
+}
+
+@media (max-width: 1024px) {
+    .form__group {
+        flex-direction: column;
+        gap: 2rem;
+    }
+}

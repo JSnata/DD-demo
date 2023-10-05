@@ -1,5 +1,5 @@
 import React from 'react';
-// eslint-disable-next-line import/no-extraneous-dependencies
+
 import {
   ResponsiveContainer,
   LineChart,
@@ -12,7 +12,7 @@ import s from './Charts.module.css';
 
 function TrackingChart({ data }) {
   return (
-    <ResponsiveContainer>
+    <ResponsiveContainer width="99%">
       <LineChart>
         <CartesianGrid strokeDasharray="0" stroke="#b7ffe913" />
         <XAxis dataKey="name" fill="#ddd" />
