@@ -39,3 +39,25 @@
 .-open.main_container {
   grid-template-columns: 250px 1fr;
 }
+
+@media (max-width: 1024px) {
+  .-open.main_container {
+    overflow: hidden;
+  }
+
+  .-open .main-content {
+    position: relative;
+  }
+
+  .-open .main-content::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    background-color: #000;
+    opacity: .4;
+    z-index: 10;
+  }
+}

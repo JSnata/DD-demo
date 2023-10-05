@@ -1,63 +1,67 @@
-import React, { useState } from 'react';
-// eslint-disable-next-line import/no-extraneous-dependencies
-// import { useLocation } from 'react-router-dom';
+import React, { useCallback, useEffect, useState } from 'react';
 import ProductFilter from './ProductFilter';
 import s from './Booking.module.css';
 import CarCard from '../../components/CarCard/CarCard';
-
-// import carData from '../../assets/dummy-data/booking-cars';
-// import Filter from '../../UI/Filter/Filter';
 import SearchBar from './SearchBar';
 import useCollection from '../../custom-hooks/useCollection';
 import BoxElement from '../../UI/Box/Box';
 
-// const filterOptionsCars = ['Toyota', 'Volvo', 'Audi'];
-// const filterOptionsMarket = ['New', 'Popular', 'Upcoming'];
-
-function Bookings() {
-  const [searchInput, setSearchInput] = useState('');
-  const [searchFilteredResults, setSearchFilteredResults] = useState([]);
-  // const [categoryName, setCategoryName] = useState('');
-  // const [collection, setCollection] = useState('');
-  const [currentCategoryFilter, setCurrentCategoryFilter] = useState('All');
-  const { documents, error, title } = useCollection('bookingCars');
-
-  // const queryString = useLocation().pathname.split('/');
-  // const currentCategory = currentCategoryFilter;
-  // useEffect(() => {
-  //   if (currentCategory) {
-  //     setCategoryName(currentCategory);
-  //   }
-  // }, [currentCategory]);
-
-  const filterData = searchInput.length ? searchFilteredResults : documents;
-  const products = filterData
-    ? filterData.filter((document) => {
-        switch (currentCategoryFilter) {
+function getProducts(data, current) {
+  return data
+    ? data.filter((document) => {
+        switch (current) {
           case 'All':
             return true;
           case 'Toyota':
           case 'Volvo':
           case 'Audi':
-            return document.category === currentCategoryFilter;
+            return document.category === current;
           default:
             return true;
         }
       })
     : null;
+}
+
+function Bookings() {
+  const [searchInput, setSearchInput] = useState('');
+  const [searchFilteredResults, setSearchFilteredResults] = useState([]);
+
+  const { documents, error, title } = useCollection('bookingCars');
+  const [currentCategoryFilter, setCurrentCategoryFilter] = useState('All');
+  const [filterData, setFilterData] = useState(
+    searchInput.length ? searchFilteredResults : documents
+  );
+  const [products, setProducts] = useState(
+    getProducts(filterData, currentCategoryFilter)
+  );
+
+  useEffect(() => {
+    setFilterData(searchInput.length ? searchFilteredResults : documents);
+  }, [documents, searchFilteredResults, searchInput]);
+
+  useEffect(() => {
+    const data = getProducts(filterData, currentCategoryFilter);
+
+    setProducts(data);
+  }, [currentCategoryFilter, filterData]);
 
   const changeSearchInput = (searchValue) => {
     setSearchInput(searchValue);
-    const filteredData = products.filter((item) => {
+    const data = products.filter((item) => {
       const filterCount = `${item.carName}`;
       return filterCount.toLowerCase().includes(searchValue.toLowerCase());
     });
-    setSearchFilteredResults(filteredData);
+    setFilterData(data);
+    setSearchFilteredResults(data);
   };
 
-  const changeFilter = (newFilter) => {
-    setCurrentCategoryFilter(newFilter);
-  };
+  const changeFilter = useCallback(
+    (newFilter) => {
+      setCurrentCategoryFilter(newFilter);
+    },
+    [setCurrentCategoryFilter]
+  );
 
   return (
     <div className="content__wrapper">
@@ -67,6 +71,7 @@ function Bookings() {
         <BoxElement
           sx={{
             display: 'flex',
+            flexWrap: 'wrap',
             marginBottom: '30px',
           }}
         >
@@ -81,8 +86,6 @@ function Bookings() {
                 changeFilter={changeFilter}
               />
             )}
-            {/* <Filter options={filterOptionsCars} />
-          <Filter options={filterOptionsMarket} /> */}
           </div>
         </BoxElement>
 

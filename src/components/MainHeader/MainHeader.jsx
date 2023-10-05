@@ -1,8 +1,8 @@
-/* eslint-disable import/no-extraneous-dependencies */
-import React, { useState } from 'react';
-// import { signOut } from 'firebase/auth';
-// import { toast } from 'react-toastify';
-// import { useNavigate } from 'react-router-dom';
+import React, { useEffect, useState } from 'react';
+import { IconButton } from '@mui/material';
+import MenuIcon from '@mui/icons-material/Menu';
+import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
+
 import Notification from '../../UI/Notification/Notification';
 import useLogout from '../../custom-hooks/useLogout';
 import profileImg from '../../assets/images/profile-02.png';
@@ -10,12 +10,8 @@ import UserNav from '../UserNav/UserNav';
 import useAuthContext from '../../custom-hooks/useAuthContext';
 import SecondaryButton from '../../UI/Buttons/SecondaryButton';
 import s from './MainHeader.module.css';
-import { IconButton } from '@mui/material';
-import MenuIcon from '@mui/icons-material/Menu';
-import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import useAppContext from '../../custom-hooks/useAppContext';
-// import useAuth from '../../custom-hooks/useAuth';
-// import { auth } from '../../firebase.config';
+
 const userNavData = [
   {
     link: '/settings',
@@ -33,8 +29,7 @@ const userNavData = [
 
 function MainHeader() {
   const { logout } = useLogout();
-  const { user, authIsReady } = useAuthContext();
-
+  const { user } = useAuthContext();
   const { dispatch, isMenuOpen } = useAppContext();
   const [menuOpen, setMenuOpen] = useState(isMenuOpen);
 
@@ -42,9 +37,10 @@ function MainHeader() {
     setMenuOpen(!menuOpen);
     dispatch({ type: 'SET_MENU_STATUS', payload: !menuOpen });
   };
-  // const currentUser = true;
-  // const { currentUser } = useAuth();
-  // const navigate = useNavigate();
+
+  useEffect(() => {
+    setMenuOpen(isMenuOpen);
+  }, [isMenuOpen]);
 
   return (
     <div className={s.main_header}>
@@ -65,7 +61,14 @@ function MainHeader() {
           {user && <Notification />}
           {!user && <SecondaryButton link="/login">Login</SecondaryButton>}
           {!user && <SecondaryButton link="/register">Sign up</SecondaryButton>}
-          {user && <UserNav userId={user.uid} clickHandler={logout} profileImg={profileImg} menuData={userNavData} />}
+          {user && (
+            <UserNav
+              userId={user.uid}
+              clickHandler={logout}
+              profileImg={profileImg}
+              menuData={userNavData}
+            />
+          )}
         </div>
       </div>
     </div>
@@ -73,19 +76,3 @@ function MainHeader() {
 }
 
 export default MainHeader;
-
-// {currentUser ? (
-//   <>
-//     <SecondaryButton link="/profile">Profile</SecondaryButton>
-
-//     <SecondaryButton link="/user">
-//       {/* clickHandler={logout} */}
-//       Logout
-//     </SecondaryButton>
-//   </>
-// ) : (
-//   <>
-//     <SecondaryButton link="/login">Login</SecondaryButton>
-//     <SecondaryButton link="/register">Register</SecondaryButton>
-//   </>
-// )}

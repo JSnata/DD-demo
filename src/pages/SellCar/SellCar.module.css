@@ -60,3 +60,10 @@
     composes: main_title from "../../App.css";
     margin: 0;
 }
+
+@media (max-width: 1024px) {
+    .sell_car__top {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+}

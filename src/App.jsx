@@ -11,25 +11,39 @@ import Dashboard from './pages/Dashboard/Dashboard';
 import Settings from './pages/Settings/Settings';
 import SellCar from './pages/SellCar/SellCar';
 import Bookings from './pages/Booking/Bookings';
-import ProtectedRoute from './routers/ProtectedRoute';
-import { ToastContainer, toast } from 'react-toastify';
+import { ToastContainer } from 'react-toastify';
 import 'remixicon/fonts/remixicon.css';
 import 'react-toastify/dist/ReactToastify.css';
 import 'react-circular-progressbar/dist/styles.css';
 import useAuthContext from './custom-hooks/useAuthContext';
-import useAppContext from "./custom-hooks/useAppContext";
+import useAppContext from './custom-hooks/useAppContext';
+import useResizeObserver from 'use-resize-observer';
+
+import { debounce as _debounce } from 'lodash-es';
 
 const App = () => {
+  const mediaCondition = '(max-width: 1024px)';
   const { user, authIsReady } = useAuthContext();
-  const { isMenuOpen: menuOpen } = useAppContext();
+  const { isMenuOpen: menuOpen, dispatch: setIsMenuOpen } = useAppContext();
+  const { ref } = useResizeObserver({
+    onResize: _debounce(() => {
+      setIsMenuOpen({ type: 'SET_MENU_STATUS', payload: !window.matchMedia(mediaCondition).matches });
+    }, 300),
+  });
+
+  const hideSidebarHandler = () => {
+    if (window.matchMedia(mediaCondition).matches) {
+      setIsMenuOpen({ type: 'SET_MENU_STATUS', payload: false });
+    }
+  }
 
   return (
-    <div className={`main_container ${menuOpen ? '-open' : ''}`}>
+    <div ref={ref} className={`main_container ${menuOpen ? '-open' : ''}`}>
       {authIsReady && (
         <>
           <MainHeader />
           <Sidebar />
-          <div className="main-content">
+          <div className="main-content" onClick={hideSidebarHandler}>
             <Routes>
               <Route
                 path="/"
@@ -41,7 +55,7 @@ const App = () => {
               <Route path="/dashboard" element={<Dashboard />} />
               <Route path="/bookings/*" element={<Bookings />} />
               <Route path="/sell-car" element={<SellCar />} />
-              { user && <Route path="/settings" element={<Settings />} />}
+              {user && <Route path="/settings" element={<Settings />} />}
             </Routes>
           </div>
           <ToastContainer position="bottom-right" />

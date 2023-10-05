@@ -13,7 +13,7 @@ import s from './Charts.module.css';
 
 function CustomAreaChart({ data }) {
   return (
-    <ResponsiveContainer>
+    <ResponsiveContainer width="99%">
       <AreaChart
         data={data}
         margin={{

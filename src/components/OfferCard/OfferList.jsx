@@ -7,10 +7,8 @@ function OfferList() {
   const { documents: offerData } = useCollection('offers');
 
   return (
-    <div className={s.offer__list}>
-      {offerData && offerData.map((item) => (
-        <OfferCard offerData={item} />
-      ))}
+    <div className={s.offer_list}>
+      {offerData && offerData.map((item) => <OfferCard offerData={item} />)}
     </div>
   );
 }
