@@ -2,8 +2,12 @@ import React from 'react';
 import s from './Sidebar.module.css';
 import MainNav from '../MainNav/MainNav';
 import useAppContext from '../../custom-hooks/useAppContext';
+import AccountList from './accountList';
+import useAuthContext from '../../custom-hooks/useAuthContext';
+import Logo from '../Logo/Logo';
 
 function Sidebar() {
+  const { user } = useAuthContext();
   const { isMenuOpen: menuOpen } = useAppContext();
 
   if (!menuOpen) {
@@ -13,16 +17,14 @@ function Sidebar() {
   return (
     <section className={s.sidebar}>
       <div className={s.top}>
-        <h2 className={s.title}>
-          <span className={s.icon__wrap}>
-            <i className={`${s.icon} ri-roadster-fill`} />
-          </span>
-          Rent
-        </h2>
+        <Logo />
       </div>
-      <div className={s.content}>
-        <MainNav />
-      </div>
+      <MainNav />
+      {user && (
+        <div className={s.footer}>
+          <AccountList />
+        </div>
+      )}
     </section>
   );
 }

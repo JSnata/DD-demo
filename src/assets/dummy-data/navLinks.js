@@ -1,28 +1,38 @@
+const guestPages = ['/dashboard', '/bookings', '/sell-car'];
+
 const navLinks = [
   {
-    path: '/dashboard',
+    link: '/dashboard',
     icon: 'ri-apps-2-line',
-    display: 'Dashboard',
+    title: 'Dashboard',
   },
   {
-    path: '/bookings',
+    link: '/bookings',
     icon: 'ri-taxi-line',
-    display: 'Booking',
+    title: 'Booking',
   },
   {
-    path: '/sell-car',
+    link: '/sell-car',
     icon: 'ri-shopping-bag-line',
-    display: 'Sell Cars',
-  },
-  {
-    path: '/settings',
-    icon: 'ri-settings-2-line',
-    display: 'Settings',
+    title: 'Sell Cars',
   },
 ];
 
-const guestPages = ['/dashboard', '/bookings', '/sell-car'];
+export const accountLinks = [
+  {
+    link: '/settings',
+    icon: 'ri-settings-2-line',
+    title: 'Settings',
+  },
+  {
+    link: '/profile',
+    icon: 'ri-profile-line',
+    title: 'Profile',
+  },
+];
 
-export const guestNavLinks = navLinks.filter((item) => guestPages.includes(item.path));
+export const guestNavLinks = navLinks.filter((item) =>
+  guestPages.includes(item.link)
+);
 
 export default navLinks;

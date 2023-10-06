@@ -7,7 +7,9 @@ function Filter({ options }) {
     <FormControl size="small">
       <Select defaultValue={options[0]} className={s.filter}>
         {options.map((value) => (
-          <MenuItem value={value}>{value}</MenuItem>
+          <MenuItem key={value} value={value}>
+            {value}
+          </MenuItem>
         ))}
       </Select>
     </FormControl>

@@ -1,5 +1,4 @@
 .list {
-    max-width: 175px;
     list-style: none;
     display: flex;
     flex-direction: column;
@@ -10,17 +9,21 @@
     width: 100%;
 }
 
-.item a.active {
+.item a.active,
+.item button.active {
     background-color: var(--color-primary-light);
     padding-left: 15px;
 }
 
-.item a:hover:not(.active) {
+.item a:hover:not(.active),
+.item button:hover:not(.active) {
     background-color: var(--color-text-dark-medium);
     color: var(--color-primary-light);
 }
 
-.item a {
+.item a,
+.item button {
+    cursor: pointer;
     display: block;
     width: 100%;
     padding: 10px 8px;
@@ -29,6 +32,9 @@
     font-weight: 500;
     color: var(--color-text-dark-medium);
     transition: all 0.1s ease-out;
+    border: 0;
+    background-color: transparent;
+    text-align: left;
 }
 
 .item i {

@@ -1,9 +1,5 @@
 .user_nav {
   position: relative;
-}
-
-.user_btn {
-  cursor: pointer;
   width: 45px;
   height: 40px;
   border: none;
@@ -13,10 +9,8 @@
   text-decoration: none;
   display: inline-block;
   padding: 0;
-
 }
 
 .img img {
   width: 100%;
-  
 }

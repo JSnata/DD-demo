@@ -6,11 +6,13 @@ function SecondaryMenu({ menuData, clickHandler }) {
   return (
     <ul className={s.list}>
       {menuData.map((item) => (
-        <li className={s.item}>
+        <li key={item.link} className={s.item}>
           {item.link ? (
             <Link to={item.link}>{item.title}</Link>
           ) : (
-            <button type="button" onClick={clickHandler}>{item.title}</button>
+            <button type="button" onClick={clickHandler}>
+              {item.title}
+            </button>
           )}
         </li>
       ))}

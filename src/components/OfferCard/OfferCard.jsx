@@ -37,7 +37,7 @@ function OfferCard({ offerData }) {
         </div>
       </div>
       {offerData.spendData.map((item) => (
-        <div className={s.box}>
+        <div key={item.id} className={s.box}>
           <SpendCard
             icon={item.icon}
             spendAmount={item.amount}

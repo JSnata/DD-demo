@@ -7,10 +7,8 @@
 }
 
 .main_content {
-  grid-column: 2 / 3;
-  grid-row: 2 / 3;
-  padding: 30px;
-  background-color: var(--color-primary-light);
+  height: calc(100vh - var(--size-header));
+  overflow: auto;
 }
 
 .content__wrapper {
@@ -45,11 +43,12 @@
     overflow: hidden;
   }
 
-  .-open .main-content {
+  .-open .main_content {
     position: relative;
+    overflow: hidden;
   }
 
-  .-open .main-content::after {
+  .-open .main_content::after {
     content: '';
     position: absolute;
     top: 0;
