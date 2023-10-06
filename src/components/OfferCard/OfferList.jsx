@@ -8,7 +8,8 @@ function OfferList() {
 
   return (
     <div className={s.offer_list}>
-      {offerData && offerData.map((item) => <OfferCard offerData={item} />)}
+      {offerData &&
+        offerData.map((item) => <OfferCard key={item.id} offerData={item} />)}
     </div>
   );
 }
