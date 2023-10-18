@@ -1,10 +1,12 @@
 import { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { signOut } from 'firebase/auth';
 import { toast } from 'react-toastify';
 import { auth } from '../firebase.config';
 import useAuthContext from './useAuthContext';
 
 const useLogout = () => {
+  const navigate = useNavigate();
   const [isCancelled, setIsCancelled] = useState(false);
   const [error, setError] = useState(null);
   const [isPending, setIsPending] = useState(false);
@@ -15,6 +17,7 @@ const useLogout = () => {
       .then(() => {
         dispatch({ type: 'LOGOUT' });
         toast('Logged out');
+        navigate('/dashboard');
         if (!isCancelled) {
           setIsPending(false);
           setError(null);

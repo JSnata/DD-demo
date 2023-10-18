@@ -1,13 +1,15 @@
 import React from 'react';
 import { Routes, Route, Navigate } from 'react-router-dom';
 import { ToastContainer } from 'react-toastify';
+import { createTheme } from '@mui/material/styles';
+import { ThemeProvider } from '@mui/material';
 import useResizeObserver from 'use-resize-observer';
 import { debounce as _debounce } from 'lodash-es';
 
 import './App.css';
 import Login from './pages/Auth/Login';
 import Register from './pages/Auth/Register';
-import Profile from './pages/Auth/Profile';
+import Profile from './pages/Profile/Profile';
 import MainHeader from './components/MainHeader/MainHeader';
 import Sidebar from './components/SideBar/Sidebar';
 import Dashboard from './pages/Dashboard/Dashboard';
@@ -34,6 +36,15 @@ function App() {
     }, 300),
   });
 
+  const theme = createTheme({
+    // Custom colors created with augmentColor go here
+    palette: {
+      primary: {
+        main: 'rgba(161, 98, 247, 1)', // --color-primary-purple
+      },
+    },
+  });
+
   const hideSidebarHandler = () => {
     if (window.matchMedia(mediaCondition).matches) {
       setIsMenuOpen({ type: 'SET_MENU_STATUS', payload: false });
@@ -41,30 +52,32 @@ function App() {
   };
 
   return (
-    <div ref={ref} className={`main_container ${menuOpen ? '-open' : ''}`}>
-      {authIsReady && (
-        <>
-          <MainHeader />
-          <Sidebar />
-          <div className="main_content" onClick={hideSidebarHandler}>
-            <Routes>
-              <Route
-                path="/"
-                element={<Navigate to="/dashboard" element={<Dashboard />} />}
-              />
-              <Route path="/login" element={<Login />} />
-              <Route path="/register" element={<Register />} />
-              <Route path="/profile" element={<Profile />} />
-              <Route path="/dashboard" element={<Dashboard />} />
-              <Route path="/bookings/*" element={<Bookings />} />
-              <Route path="/sell-car" element={<SellCar />} />
-              {user && <Route path="/settings" element={<Settings />} />}
-            </Routes>
-          </div>
-          <ToastContainer position="bottom-right" />
-        </>
-      )}
-    </div>
+    <ThemeProvider theme={theme}>
+      <div ref={ref} className={`main_container ${menuOpen ? '-open' : ''}`}>
+        {authIsReady && (
+          <>
+            <MainHeader />
+            <Sidebar />
+            <div className="main_content" onClick={hideSidebarHandler}>
+              <Routes>
+                <Route
+                  path="/"
+                  element={<Navigate to="/dashboard" element={<Dashboard />} />}
+                />
+                <Route path="/login" element={<Login />} />
+                <Route path="/register" element={<Register />} />
+                <Route path="/profile" element={<Profile />} />
+                <Route path="/dashboard" element={<Dashboard />} />
+                <Route path="/bookings/*" element={<Bookings />} />
+                <Route path="/sell-car" element={<SellCar />} />
+                {user && <Route path="/settings" element={<Settings />} />}
+              </Routes>
+            </div>
+            <ToastContainer position="bottom-right" />
+          </>
+        )}
+      </div>
+    </ThemeProvider>
   );
 }
 

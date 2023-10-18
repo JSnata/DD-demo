@@ -5,7 +5,6 @@ import { db } from '../firebase.config';
 const useDocument = (col, id) => {
   const [document, setDocument] = useState(null);
   const [error, setError] = useState(null);
-  console.log(id);
 
   // realtime document data
   useEffect(() => {
@@ -21,7 +20,7 @@ const useDocument = (col, id) => {
       // eslint-disable-next-line no-shadow
       (error) => {
         setError(`could not fetch the data: ${error}`);
-      },
+      }
     );
 
     // unsubscribe on unmount

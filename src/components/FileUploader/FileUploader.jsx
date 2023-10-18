@@ -1,59 +1,77 @@
-import React, { useState, useRef, useEffect} from 'react';
-import useUpdateStorage from '../../custom-hooks/useUpdateStorage';
+import React, { useState, useRef, useEffect } from 'react';
+import { Button } from '@mui/material';
+import { Field, useField } from 'formik';
 import s from './FileUploader.module.css';
-import SecondaryButton from '../../UI/Buttons/SecondaryButton';
-import useUpdateUser from '../../custom-hooks/useUpdateUser';
-import useAuthContext from '../../custom-hooks/useAuthContext';
 
-function FileUploader({ category, id, setFile }) {
+const types = ['image/png', 'image/jpeg', 'image/jpg'];
+const allowedFormats = '.png, .jpg, .jpeg';
 
+function FileUploader({ setFile, name }) {
+  const [{ value, onChange: defaultHandleChange }] = useField(name);
   const [error, setError] = useState(null);
-  const { user } = useAuthContext();
-  const { updateUser } = useUpdateUser();
+  const [selectedFile, setSelectedFile] = useState(null);
 
-  const ref = useRef(null);
-  const types = ['image/png', 'image/jpeg', 'image/jpg'];
+  const fileInputRef = useRef(null);
+  const imageRef = useRef(null);
 
   const handleClick = () => {
-    if (ref) {
-      ref.current.click();
+    if (fileInputRef) {
+      fileInputRef.current.click();
     }
   };
 
   const handleChange = (e) => {
-    const selectedFile = e.target.files[0];
+    defaultHandleChange(e);
+    setSelectedFile(e.target.files[0]);
+  };
 
+  useEffect(() => {
     if (selectedFile) {
       if (types.includes(selectedFile.type)) {
         setError(null);
         setFile(selectedFile);
+
+        const reader = new FileReader();
+
+        reader.onload = (event) => {
+          imageRef.current.src = event.target.result;
+        };
+
+        reader.readAsDataURL(selectedFile);
       } else {
         setFile(null);
         setError('Please select an image file (png or jpg)');
       }
     }
-  };
-
-//   useEffect(() => {
-//     updateUser(user, { imgUrl: url });
-//   }, [url]);
+  }, [selectedFile, setFile]);
 
   return (
     <div className={s.file_uploader}>
-      <p className={s.description}>This will be displayed in your profile</p>
-      <SecondaryButton clickHandler={() => handleClick()}>
-        Choose your photo
-      </SecondaryButton>
-      <input
-        name="photo"
-        accept=".png, .jpg, .jpeg"
-        id="photo"
-        type="file"
-        ref={ref}
-        hidden
-        onChange={handleChange}
-      />
-      {error && <p>{error}</p>}
+      <div className={s.title_block}>
+        <Button variant="outlined" onClick={() => handleClick()}>
+          {value ? 'Choose another photo' : 'Choose your photo'}
+        </Button>
+        <p className={s.description}>
+          This image will be displayed in your profile
+        </p>
+      </div>
+      <div>
+        <Field
+          name="photo"
+          id="photo"
+          accept={allowedFormats}
+          type="file"
+          innerRef={fileInputRef}
+          hidden
+          onChange={handleChange}
+        />
+        {error && <p>{error}</p>}
+        {value && selectedFile && (
+          <div className={s.image_preview_block}>
+            <img src="" alt="Preview" ref={imageRef} />
+          </div>
+        )}
+      </div>
     </div>
   );
 }

@@ -5,7 +5,13 @@ import { TextField } from '@mui/material';
 import s from './Inputs.module.css';
 
 function SettingsInput({
-  label, id, type, name, placeholder, autoComplete, ...rest
+  label,
+  id,
+  type,
+  name,
+  placeholder,
+  autoComplete,
+  ...rest
 }) {
   return (
     <Field
@@ -18,14 +24,14 @@ function SettingsInput({
       placeholder={placeholder}
       type={type}
       fullWidth
-      helperText={(
+      helperText={
         <ErrorMessage
           name={name}
           component="div"
           className={s.error__message}
           autoComplete={autoComplete}
         />
-      )}
+      }
       {...rest}
     />
   );
