@@ -1,13 +1,16 @@
 .user_nav {
   position: relative;
-  width: 45px;
-  height: 40px;
-  border: none;
+  width: 42px;
+  min-width: 42px;
+  height: 42px;
+  border: 2px solid var(--color-primary-purple);
   border-radius: 50%;
   overflow: hidden;
   text-align: center;
   text-decoration: none;
-  display: inline-block;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   padding: 0;
 }
 

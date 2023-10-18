@@ -44,24 +44,19 @@
     margin-bottom: 10px;
 }
 
-.profile__img_btns {
+.details__form {}
+
+.title {
     display: flex;
-    flex-direction: row !important;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    margin-bottom: 3rem;
+}
+
+.actions_wrapper {
+    display: flex;
     column-gap: 2.7rem;
-}
-
-.dlt__btn,
-.update__btn {
-    border: none;
-    outline: none;
-    background: transparent;
-    color: #ddd;
-    font-size: 0.9rem;
-    cursor: pointer;
-}
-
-.update__btn {
-    color: var(--color-primary-purple);
 }
 
 @media (max-width: 1024px) {

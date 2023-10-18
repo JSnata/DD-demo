@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Divider } from '@mui/material';
 import { concat as _concat } from 'lodash-es';
 
@@ -6,13 +6,19 @@ import List from '../../UI/List/List';
 import Item from '../../UI/List/Item';
 import { accountLinks } from '../../assets/dummy-data/navLinks';
 import useLogout from '../../custom-hooks/useLogout';
+import ConfirmationDialog from '../ConfirmationDialog';
 
 function AccountList() {
+  const [openDialog, setOpenDialog] = useState(false);
   const { logout } = useLogout();
+
+  const openDialogHandler = () => {
+    setOpenDialog(true);
+  };
 
   const list = _concat(accountLinks, [
     {
-      action: logout,
+      action: openDialogHandler,
       icon: 'ri-logout-box-line',
       title: 'Logout',
     },
@@ -32,6 +38,13 @@ function AccountList() {
           />
         ))}
       </List>
+      <ConfirmationDialog
+        title="Are you sure?"
+        content="Yuo will be logged out"
+        openDialog={openDialog}
+        setOpenDialog={setOpenDialog}
+        callback={logout}
+      />
     </>
   );
 }

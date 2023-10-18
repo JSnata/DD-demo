@@ -4,20 +4,20 @@ import { doc, deleteDoc } from 'firebase/firestore';
 import { toast } from 'react-toastify';
 import useLogout from './useLogout';
 import { db } from '../firebase.config';
+import useAuthContext from './useAuthContext';
 
 const useDeleteUser = () => {
+  const { user } = useAuthContext();
   const [isCancelled, setIsCancelled] = useState(false);
   const [error, setError] = useState(null);
   const [isPending, setIsPending] = useState(false);
   const { logout } = useLogout();
 
-  const delUser = (user) => {
-    console.log(user);
+  const deleteUserHandler = () => {
     setError(null);
     setIsPending(true);
     deleteUser(user)
       .then(() => {
-        console.log('im here');
         deleteDoc(doc(db, 'users', user.uid));
       })
       .then(() => {
@@ -38,7 +38,7 @@ const useDeleteUser = () => {
 
   useEffect(() => () => setIsCancelled(true), []);
   return {
-    delUser,
+    deleteUserHandler,
     error,
     isPending,
   };
