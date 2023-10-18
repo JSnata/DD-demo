@@ -37,7 +37,6 @@ function App() {
   });
 
   const theme = createTheme({
-    // Custom colors created with augmentColor go here
     palette: {
       primary: {
         main: 'rgba(161, 98, 247, 1)', // --color-primary-purple
