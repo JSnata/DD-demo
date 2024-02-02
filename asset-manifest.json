@@ -1,0 +1,19 @@
+{
+  "files": {
+    "main.css": "/static/css/main.6b8f30bd.css",
+    "main.js": "/static/js/main.97cff53b.js",
+    "static/media/remixicon.svg?t=1687271883607": "/static/media/remixicon.636515c9a8963df4380d.svg",
+    "static/media/remixicon.eot?t=1687271883607": "/static/media/remixicon.83e9a22ce7f199999169.eot",
+    "static/media/remixicon.ttf?t=1687271883607": "/static/media/remixicon.0bcb16fc20c3d365da14.ttf",
+    "static/media/remixicon.woff?t=1687271883607": "/static/media/remixicon.3f0f84f17d39491e07ff.woff",
+    "static/media/remixicon.woff2?t=1687271883607": "/static/media/remixicon.85992a032c7668836563.woff2",
+    "static/media/sell-car.png": "/static/media/sell-car.62401fb567e0b7d6ed6d.png",
+    "index.html": "/index.html",
+    "main.6b8f30bd.css.map": "/static/css/main.6b8f30bd.css.map",
+    "main.97cff53b.js.map": "/static/js/main.97cff53b.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.6b8f30bd.css",
+    "static/js/main.97cff53b.js"
+  ]
+}
