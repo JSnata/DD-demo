@@ -1,0 +1,32 @@
+#webpack-dev-server-client-overlay {
+    display: none !important;
+}
+
+body {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 14px;
+    background: var(--color-main-bg);
+    margin: 0;
+    padding: 0;
+}
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+ul, ul li {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+h1, h2, h3, h4 {
+    margin: 0;
+}
+
+img {
+    width: 100%;
+    height: auto;
+}
+a {
+    text-decoration: none;
+    color: unset;
+}

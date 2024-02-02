@@ -1,0 +1,27 @@
+.file_uploader {
+    display: flex;
+    flex-direction: column;
+}
+
+.title_block {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.description {
+    color: var(--color-text-dark-medium);
+    font-size: 12px;
+}
+
+.image_preview_block {
+    max-width: 150px;
+    width: 150px;
+    height: 150px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid var(--color-primary-purple);
+    padding: 2px;
+    margin-top: 16px;
+}

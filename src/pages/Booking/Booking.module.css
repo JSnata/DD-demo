@@ -1,0 +1,52 @@
+
+.booking__title {
+    font-size: 1.4rem;
+    color: var(--color-primary-dark);
+    margin-bottom: 2rem;
+}
+
+.list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    column-gap: 2rem;
+    row-gap: 2rem;
+}
+
+.list .list__item {
+    width: 100%;
+}
+
+.filter__widget_wrapper {
+    display: flex;
+    align-items: center;
+    column-gap: 1.5rem;
+}
+
+.filter__widget_01 select, 
+.filter__widget_02 select {
+    border: none;
+    padding: 7px 20px;
+    border-radius: 10px;
+    background: #fff;
+    color: var(--color-text-dark-medium);
+    cursor: pointer;
+    margin-bottom: 2rem;
+}
+
+.filter__wrapper {
+    display: flex;
+    align-items: center;
+    column-gap: 1.5rem;
+}
+
+@media (max-width: 1024px) {
+    .list {
+        display: grid;
+        grid-template-columns: 1fr;
+        column-gap: 2rem;
+        row-gap: 2rem;
+    }
+}
+
+
+  

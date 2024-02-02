@@ -1,0 +1,29 @@
+.product_filter {
+    display: flex;
+  }
+  .product_filter nav {
+    display: flex;
+    padding: 10px;
+    background-color: #fff;
+    border-radius: 4px;
+  }
+  .product_filter p {
+    font-size: 0.9em;
+    margin-right: 10px;
+  }
+  .product_filter button {
+    background: transparent;
+    border: 0;
+    font-family: inherit;
+    font-weight: bold;
+    color: var( --color-text-dark-medium);
+    cursor: pointer;
+    border-right: 1px solid #e4e4e4;
+    font-size: 0.9em;
+  }
+  .product_filter button:last-child {
+    border: 0;
+  }
+  .product_filter button.active {
+    color: var(--color-secondary-red);
+  } 

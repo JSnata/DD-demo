@@ -1,0 +1,72 @@
+.list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  margin-top: 2rem;
+  column-gap: 2rem;
+}
+
+.recommend__card {
+  padding: 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.img__wrapper {
+  width: 100%;
+
+}
+
+.recommend__card:nth-child(1) {
+  background: var(--recommend-car01-bg);
+}
+.recommend__card:nth-child(2) {
+  background: var(--recommend-car02-bg);
+}
+.recommend__card:nth-child(3) {
+  background: var(--recommend-car03-bg);
+}
+
+.top h5 {
+  display: flex;
+  align-items: center;
+  column-gap: 1rem;
+  color: var(--body-bg);
+  margin-bottom: 10px;
+}
+
+.top h5 span i {
+  font-size: 1.2rem;
+}
+
+.bottom h4 {
+  font-size: 1.3rem;
+  margin: 10px 0px;
+}
+
+.other {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.icons {
+  display: flex;
+  align-items: center;
+  column-gap: 1rem;
+}
+
+.icons p:nth-child(1) {
+  display: flex;
+  align-items: center;
+  column-gap: 1rem;
+}
+
+@media (max-width: 1024px) {
+  .list {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+}

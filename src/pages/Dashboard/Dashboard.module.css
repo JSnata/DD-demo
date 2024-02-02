@@ -1,0 +1,11 @@
+.statics {
+    display: flex;
+    gap: 2rem;
+    margin-top: 40px;
+}
+
+@media (max-width: 1024px) {
+    .statics {
+        flex-direction: column;
+    }
+}

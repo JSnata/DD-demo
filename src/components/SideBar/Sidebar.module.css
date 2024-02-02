@@ -1,0 +1,19 @@
+.sidebar {
+    grid-column: 1 / 2;
+    grid-row: 1 / 3;
+    padding: 0 25px 25px;
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+}
+
+.top {
+    width: 100%;
+    height: var(--size-header);
+    display: flex;
+    align-items: center;
+}
+
+.footer {
+    margin-top: auto;
+}
